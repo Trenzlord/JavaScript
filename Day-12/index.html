@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day-12</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+ <script>
+     const pressed = []; //basilan tuslar icin bos bir dizi olusturduk.
+
+     const secretCode = 'mertkaan'; // eger tuslara secretCode degiskeni degeri basilirsa asagidaki kodlar calisacak.
+
+     window.addEventListener('keyup', (e) =>{ // main site icinde key tuslari icin bir fonksiyon
+         console.log(e.key); //basilan her tusu yazdirmak icin
+
+         pressed.push(e.key); // basilan tuslari bos dizi icinde attik
+
+         pressed.splice(- secretCode.length - 1, pressed.length - secretCode.length); 
+
+         //secretCode degiskeni sayisindan fazla olunca girilen degeri 1 azaltarak yeni girilen degeri ekliyor.
+        
+         if (pressed.join('').includes(secretCode)) { 
+            //SecretCode icindeki deger yazilirsa loglarda DING ifadesini ve siteden cekilmis tatlis stickerlar yer aliyor.
+             console.log("DING DING !");
+             cornify_add();
+         }
+
+         console.log(pressed);
+     })
+ </script>
+    
+</body>
+</html>
